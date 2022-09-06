@@ -28,40 +28,10 @@
   # (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
   # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   */
-JRPCTools = require('@flatmax/jrpc-oo/JRPCTools');
+let JRPCTools = require('@flatmax/jrpc-oo/JRPCTools');
 
-/** The functions for this test class will automatically be extracted for use with jrpc*/
-class TestClass {
-  constructor(){
-    this.test=1;
-  }
-  fn1(args){
-    console.log('this is fn1');
-    console.log('got args')
-    console.log(arguments)
-    console.log('args='+JSON.stringify(args, null, 2))
-    return 'this is fn1';
-  }
-
-  fn2(arg1, arg2){
-    console.log('fn2');
-    console.log('arg1 :');
-    console.log(JSON.stringify(arg1, null, 2))
-    console.log('');
-    console.log('arg2 :');
-    console.log(JSON.stringify(arg2, null, 2))
-    return arg1;
-  }
-
-  get server(){return this.getServer();}
-}
-
-class TestClass2 extends TestClass {
-  fn3(args){
-      console.log(args);
-      return 'this is fn3';
-  }
-}
+// get a class to expose over the network
+let TestClass2 = require('./TestClass').TestClass2;
 
 // note TestClass2 inherits TestClass
 tc2=new TestClass2; // this class will be used over js-JRPC
@@ -69,3 +39,8 @@ tc2=new TestClass2; // this class will be used over js-JRPC
 // start the server and add the class.
 var JrpcServer=new JRPCTools.JRPCServer(9000); // start a server on port 9000
 JrpcServer.addClass(tc2); // setup the class for remote use over the network
+
+// Note: as we are using a secure connection (private cert) on port 9000,
+// the browser will have a privacy alert because it doesn't recognise the private
+// cert. Look in the browser console on how to clear that privacy concern.
+// Alternatively, don't use secure websockets
