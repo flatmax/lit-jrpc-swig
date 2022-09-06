@@ -21,7 +21,7 @@ npm i
 Start the nodejs JRPC-OO side :
 
 ```
-./jrpc-node.node.js
+./jrpc-node.js
 ```
 
 ## Start lit-jrpc
@@ -31,6 +31,7 @@ Start the web dev server :
 ```bash
 npm start
 ```
+If the browser doesn't open to the demo, manually copy the url from the command line to the browser.
 
 Note : for the first time, look at the console, as you have to clear the browser to use the private cert in this example due to the browser's "privacy error".
 
