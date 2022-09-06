@@ -10,7 +10,7 @@
     "start": "web-dev-server"
   },
   "dependencies": {
-    "@flatmax/jrpc-oo": "^1.0.1",
+    "@flatmax/jrpc-oo": "^1.0.2",
     "@material/mwc-button": "^0.27.0",
     "lit": "^2.3.1"
   },
