@@ -1,7 +1,7 @@
 {
-  "name": "web-lit-component",
+  "name": "@flatmax/lit-jrpc-node",
   "version": "1.0.0",
-  "description": "Clone this component to build new ones based on Lit",
+  "description": "Microapp to connect Lit and node with jrpc-oo. This is a microapp starter.",
   "author": "@flatmax",
   "license": "MIT",
   "main": "index.js",
@@ -10,6 +10,8 @@
     "start": "web-dev-server"
   },
   "dependencies": {
+    "@flatmax/jrpc-oo": "^1.0.1",
+    "@material/mwc-button": "^0.27.0",
     "lit": "^2.3.1"
   },
   "devDependencies": {
