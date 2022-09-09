@@ -29,6 +29,8 @@
 #ifndef TEST_H_
 #define TEST_H_
 
+#include <string>
+
 /** Class to test the wasm setup
 */
 class Test {
@@ -40,6 +42,11 @@ public:
   /** Destructor
   */
   virtual ~Test();
+
+  /** Method to say hello
+  \returns string
+  */
+  std::string sayHello();
 };
 
 #endif // TEST_H_

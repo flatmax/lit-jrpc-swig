@@ -36,3 +36,7 @@ Test::Test(){
 Test::~Test(){
   printf("Test destructed\n");
 }
+
+std::string Test::sayHello(){
+  return std::string("Hello World!");
+}

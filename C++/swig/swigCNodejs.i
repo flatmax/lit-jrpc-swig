@@ -31,4 +31,5 @@
 #include "Test.H"
 %}
 
+%include <std_string.i>
 %include "Test.H"

@@ -30,5 +30,6 @@
 
 int main(int argc, char *argv[]){
   Test test; // test the construction and destruction of the Test class.
+  printf("%s\n",test.sayHello().c_str());
   return 0;
 }
