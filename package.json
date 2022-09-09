@@ -1,7 +1,7 @@
 {
-  "name": "@flatmax/lit-jrpc-node",
+  "name": "@flatmax/lit-jrpc-swig",
   "version": "1.0.0",
-  "description": "Microapp to connect Lit and node with jrpc-oo. This is a microapp starter.",
+  "description": "Microapp to connect Lit and node to c++ with swig and jrpc-oo. This is a microapp starter.",
   "author": "@flatmax",
   "license": "MIT",
   "main": "index.js",
@@ -19,15 +19,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/flatmax/lit-jrpc-node.git"
+    "url": "git+https://github.com/flatmax/lit-jrpc-swig.git"
   },
   "keywords": [
     "lit",
     "jrpc",
-    "node"
+    "swig",
+    "C++"
   ],
   "bugs": {
-    "url": "https://github.com/flatmax/lit-jrpc-node/issues"
+    "url": "https://github.com/flatmax/lit-jrpc-swig/issues"
   },
-  "homepage": "https://github.com/flatmax/lit-jrpc-node#readme"
+  "homepage": "https://github.com/flatmax/lit-jrpc-swig#readme"
 }
