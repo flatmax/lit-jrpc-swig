@@ -33,10 +33,15 @@
 // this var should be const
 var libSwigCNodejs = require('./C++/swig/.libs/libSwigCNodejs');
 
+/** This class inherits the C++ Test class and adds some logging to the Test::sayHello method
+*/
 class TestClass extends libSwigCNodejs.Test {
+
+  /** Override Test::sayHello to do some logging
+  */
   sayHello(args){
     console.log('executing the C++ code Test::sayHello and returning the result to the browser')
-    return super.sayHello();
+    return super.sayHello(); // this executes swig->C++ Test::sayHello
   }
 }
 

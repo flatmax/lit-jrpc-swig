@@ -1,9 +1,29 @@
-# lit-jrpc-node : lit-jrpc to jrpc-node
+# lit-jrpc-swig : lit-jrpc to jrpc-node to node-C++
+
 Basic microapp infrastructure for Lit web components which interface other web-components or nodejs using [jrpc-oo](https://github.com/flatmax/jrpc-oo).
+
+In this microapp, lit eventually interfaces C++ over the network through jrpc then locally from js to C++ using swig.
 
 This infrastructure can be easily cloned and updated for your own microapp which allows you to call objects using JRPC2 over the network between browsers, node or both.
 
 # Local Demo with nodjes and `web-dev-server`
+
+First compile the C++ with swig. Then setup the network and run.
+
+## compile C++
+
+Follow the [README.md](https://github.com/flatmax/lit-jrpc-swig/blob/master/C%2B%2B/README.md) in C++
+```
+cd C++
+./autogen.sh
+./configure
+./make
+# test if you like
+cd test
+./RunTest.js
+```
+
+## setup the network and webapp
 
 We will use secure websockets (although you don't have to), so first generate the certificate :
 ```bash
@@ -34,6 +54,10 @@ npm start
 If the browser doesn't open to the demo, manually copy the url from the command line to the browser.
 
 Note : for the first time, look at the console, as you have to clear the browser to use the private cert in this example due to the browser's "privacy error".
+
+## In the browser
+
+Click the Test.sayHello button to execute the Test::sayHello C++ code on the other side of the network.
 
 # Customise this microapp
 

@@ -72,6 +72,7 @@ export class LitJRPC extends JRPCClient {
         this.shadowRoot.appendChild(btn);
       }
     });
+    console.log("The setup is done. Click Test.sayHello to execute the C++ code in nodejs and get the return value here");
   }
 
   remoteIsUp(){
