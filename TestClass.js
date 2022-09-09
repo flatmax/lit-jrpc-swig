@@ -30,39 +30,16 @@
 
 "use strict";
 
-/** The functions for this test class will automatically be extracted for use with jrpc*/
-class TestClass {
-  constructor(){
-    this.test=1;
-  }
-  fn1(args){
-    console.log('this is fn1');
-    console.log('got args')
-    console.log(arguments)
-    console.log('args='+JSON.stringify(args, null, 2))
-    return 'this is fn1';
-  }
+// this var should be const
+var libSwigCNodejs = require('./C++/swig/.libs/libSwigCNodejs');
 
-  fn2(arg1, arg2){
-    console.log('fn2');
-    console.log('arg1 :');
-    console.log(JSON.stringify(arg1, null, 2))
-    console.log('');
-    console.log('arg2 :');
-    console.log(JSON.stringify(arg2, null, 2))
-    return arg1;
-  }
-
-  get server(){return this.getServer();}
-}
-
-class TestClass2 extends TestClass {
-  fn3(args){
-      console.log(args);
-      return 'this is fn3';
+class TestClass extends libSwigCNodejs.Test {
+  sayHello(args){
+    console.log('executing the C++ code Test::sayHello and returning the result to the browser')
+    return super.sayHello();
   }
 }
 
 module.exports = {
-  TestClass2:TestClass2
+  TestClass:TestClass
 }

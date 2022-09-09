@@ -79,50 +79,14 @@ export class LitJRPC extends JRPCClient {
     this.addClass(this); // do this for the remote to be able to call us - not necessary if execution is one way
   }
 
-  /** This method test passing arguments to the server
-  */
-  testArgPass() {
-    var lj = document.querySelector('lit-jrpc');
-    if (lj.server['TestClass.fn2']!=null)
-      lj.server['TestClass.fn2'](1, {0: 'test', 1: [ 1 ,2], 2: 'this function'});
-    else
-      console.log('expected the server to expose a class TestClass with function fn2 but couldn\'t find it');
-  }
-
-  /** This method test no passing arguments to the server
-  */
-  testNoArgPass() {
-    var lj = document.querySelector('lit-jrpc');
-    if (lj.server['TestClass.fn1']!=null)
-      lj.server['TestClass.fn1']();
-    else
-      console.log('expected the server to expose a class TestClass with function fn1 but couldn\'t find it');
-  }
-
   /** This function is defined on the server, when we call
   this.server['TestClass.fn1']()
   This function will be called to process the server's response.
   */
-  'TestClass.fn1'(params) {
-    console.log('local-client : response from the server :')
-    console.log('lit-jrpc : TestClass.fn1 : params = '+JSON.stringify(params, null, 2))
+  'Test.sayHello'(params) {
+    console.log('LitHRPC : response from the server :')
+    console.log('lit-jrpc : TestClass.sayHello : params = '+JSON.stringify(params, null, 2))
   }
-
-  // Don't define this function to force jrpc-client to react to a missing function
-  // 'TestClass.fn2'(params){
-  //   console.log('local-client : response from the server :')
-  //   console.log('lit-jrpc : TestClass.fn2 : params = '+JSON.stringify(params, null, 2))
-  // }
-
-  /** This function is defined on the server, when we call
-  this.server['TestClass.fn1']()
-  This function will be called to process the server's response.
-  */
-  'TestClass2.fn3'(params) {
-    console.log('local-client : response from the server :')
-    console.log('lit-jrpc : TestClass.fn3 : params = '+JSON.stringify(params, null, 2))
-  }
-
 
   /** This function is defined on the server, when we call
   this.server.system.listComponents()

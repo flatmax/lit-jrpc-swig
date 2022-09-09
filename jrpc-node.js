@@ -31,14 +31,14 @@
 let JRPCTools = require('@flatmax/jrpc-oo/JRPCTools');
 
 // get a class to expose over the network
-let TestClass2 = require('./TestClass').TestClass2;
+let TestClass = require('./TestClass').TestClass;
 
 // note TestClass2 inherits TestClass
-tc2=new TestClass2; // this class will be used over js-JRPC
+tc=new TestClass; // this class will be used over js-JRPC
 
 // start the server and add the class.
 var JrpcServer=new JRPCTools.JRPCServer(9000); // start a server on port 9000
-JrpcServer.addClass(tc2); // setup the class for remote use over the network
+JrpcServer.addClass(tc); // setup the class for remote use over the network
 
 // Note: as we are using a secure connection (private cert) on port 9000,
 // the browser will have a privacy alert because it doesn't recognise the private
