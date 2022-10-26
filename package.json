@@ -1,6 +1,6 @@
 {
   "name": "@flatmax/lit-jrpc-swig",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Microapp to connect Lit and node to c++ with swig and jrpc-oo. This is a microapp starter.",
   "author": "@flatmax",
   "license": "MIT",
