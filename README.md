@@ -17,7 +17,7 @@ Follow the [README.md](https://github.com/flatmax/lit-jrpc-swig/blob/master/C%2B
 cd C++
 ./autogen.sh
 ./configure
-./make
+make
 # test if you like
 cd test
 ./RunTest.js
