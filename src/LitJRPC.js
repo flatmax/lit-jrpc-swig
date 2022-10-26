@@ -64,36 +64,38 @@ export class LitJRPC extends JRPCClient {
   */
   setupDone() {
     Object.keys(this.server).forEach(fn => {
-      if (fn.indexOf('.server')<0 && fn.indexOf('.dual-batch')<0){
+      if (fn.indexOf('.sayHello')>=0){
         let btn=document.createElement('mwc-button');
         btn.raised=true; btn.elevation=10;
-        btn.onclick=this.server[fn];
+        btn.onclick=this.runFnEvent;
         btn.textContent=fn;
+        btn.ljClass = this;
         this.shadowRoot.appendChild(btn);
+        console.log('child appended')
       }
     });
     console.log("The setup is done. Click Test.sayHello to execute the C++ code in nodejs and get the return value here");
   }
 
+  /** Given an event from a button, call the runFn method
+  @param ev Event from a clicked button
+  */
+  runFnEvent(ev){
+    this.ljClass.runFn(this.textContent)
+  }
+
+  /** Given the function name to run, run it and handle the returned data from the remote
+  */
+  runFn(fn){
+    this.server[fn]()
+    .then((params) => {
+      console.log('Response from the server for the function '+fn)
+      console.log(JSON.stringify(params, null, 2))
+    });
+  }
+
   remoteIsUp(){
     console.log('LitJRPC::remoteIsUp')
     this.addClass(this); // do this for the remote to be able to call us - not necessary if execution is one way
-  }
-
-  /** This function is defined on the server, when we call
-  this.server['TestClass.fn1']()
-  This function will be called to process the server's response.
-  */
-  'Test.sayHello'(params) {
-    console.log('LitHRPC : response from the server :')
-    console.log('lit-jrpc : TestClass.sayHello : params = '+JSON.stringify(params, null, 2))
-  }
-
-  /** This function is defined on the server, when we call
-  this.server.system.listComponents()
-  This function will be called to process the server's response.
-  */
-  'system.listComponents'(params) {
-    console.log('lit-jrpc : system.listComponents : params = '+JSON.stringify(params, null, 2))
   }
 }
